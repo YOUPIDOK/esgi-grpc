@@ -8,9 +8,9 @@ datasource db {
 }
 
 model driver {
-  car_id         Int      @id
-  nb_exemplary   Int
-  image_filename String   @db.VarChar(255)
-  created_at     DateTime @default(now())
-  updated_at     DateTime @updatedAt
+  driver_id  Int      @id
+  first_name String   @db.VarChar(255)
+  last_name  String   @db.VarChar(255)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
