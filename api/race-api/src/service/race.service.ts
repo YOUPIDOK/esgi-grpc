@@ -9,10 +9,10 @@ export class RaceService {
   async createRace(data): Promise<Race> {
     return this.prisma.race.create({data});
   }
-  listRaces(): Promise<Race[]> {
+  async listRaces(): Promise<Race[]> {
     return this.prisma.race.findMany();
   }
-  getRace(raceId: number): Promise<Race> {
+  async getRace(raceId: number): Promise<Race> {
     return this.prisma.race.findUnique({
       where: { raceId: raceId },
     });
@@ -23,7 +23,7 @@ export class RaceService {
       data,
     });
   }
-  deleteRace(raceId: number) {
+  async deleteRace(raceId: number) {
     return this.prisma.race.delete({
       where: { raceId: raceId },
     });

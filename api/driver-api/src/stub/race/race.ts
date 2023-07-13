@@ -12,6 +12,7 @@ export interface Race {
 }
 
 export interface RaceParticipation {
+  raceParticipationId?: number | undefined;
   raceId?: number | undefined;
   driverId?: number | undefined;
   carId?: number | undefined;
@@ -65,8 +66,7 @@ export interface ListRaceParticipationsResponse {
 }
 
 export interface GetRaceParticipationRequest {
-  raceId?: number | undefined;
-  driverId?: number | undefined;
+  raceParticipationId?: number | undefined;
 }
 
 export interface GetRaceParticipationResponse {
@@ -83,19 +83,16 @@ export interface CreateRaceParticipationResponse {
   raceParticipation?: RaceParticipation | undefined;
 }
 
-export interface UpdateCarOfDriverRequest {
-  raceId?: number | undefined;
-  driverId?: number | undefined;
-  carId?: number | undefined;
+export interface UpdateRaceParticipationRequest {
+  raceParticipation?: RaceParticipation | undefined;
 }
 
-export interface UpdateCarOfDriverResponse {
+export interface UpdateRaceParticipationResponse {
   raceParticipation?: RaceParticipation | undefined;
 }
 
 export interface DeleteRaceParticipationRequest {
-  raceId?: number | undefined;
-  driverId?: number | undefined;
+  raceParticipationId?: number | undefined;
 }
 
 export interface DeleteRaceParticipationResponse {
@@ -180,7 +177,10 @@ export interface RaceParticipationServiceClient {
     metadata?: Metadata,
   ): Observable<CreateRaceParticipationResponse>;
 
-  updateCarOfDriver(request: UpdateCarOfDriverRequest, metadata?: Metadata): Observable<UpdateCarOfDriverResponse>;
+  updateRaceParticipation(
+    request: UpdateRaceParticipationRequest,
+    metadata?: Metadata,
+  ): Observable<UpdateRaceParticipationResponse>;
 
   deleteRaceParticipation(
     request: DeleteRaceParticipationRequest,
@@ -210,10 +210,13 @@ export interface RaceParticipationServiceController {
     | Observable<CreateRaceParticipationResponse>
     | CreateRaceParticipationResponse;
 
-  updateCarOfDriver(
-    request: UpdateCarOfDriverRequest,
+  updateRaceParticipation(
+    request: UpdateRaceParticipationRequest,
     metadata?: Metadata,
-  ): Promise<UpdateCarOfDriverResponse> | Observable<UpdateCarOfDriverResponse> | UpdateCarOfDriverResponse;
+  ):
+    | Promise<UpdateRaceParticipationResponse>
+    | Observable<UpdateRaceParticipationResponse>
+    | UpdateRaceParticipationResponse;
 
   deleteRaceParticipation(
     request: DeleteRaceParticipationRequest,
@@ -230,7 +233,7 @@ export function RaceParticipationServiceControllerMethods() {
       "listRaceParticipations",
       "getRaceParticipation",
       "createRaceParticipation",
-      "updateCarOfDriver",
+      "updateRaceParticipation",
       "deleteRaceParticipation",
     ];
     for (const method of grpcMethods) {

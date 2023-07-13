@@ -13,9 +13,8 @@ model race {
 }
 
 model race_participation {
-  raceId   Int
-  driverId Int
-  carId    Int
-
-  @@id([raceId, driverId])
+  raceParticipationId Int @id @default(autoincrement())
+  raceId              Int
+  driverId            Int
+  carId               Int
 }

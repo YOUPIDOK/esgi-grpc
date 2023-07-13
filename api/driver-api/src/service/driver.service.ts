@@ -9,10 +9,10 @@ export class DriverService {
   async createDriver(data): Promise<Driver> {
     return this.prisma.driver.create({data});
   }
-  listDrivers(): Promise<Driver[]> {
+  async listDrivers(): Promise<Driver[]> {
     return this.prisma.driver.findMany();
   }
-  getDriver(driverId: number): Promise<Driver> {
+  async  getDriver(driverId: number): Promise<Driver> {
     return this.prisma.driver.findUnique({
       where: { driverId: driverId },
     });
@@ -23,7 +23,7 @@ export class DriverService {
       data,
     });
   }
-  deleteDriver(driverId: number) {
+  async deleteDriver(driverId: number) {
     return this.prisma.driver.delete({
       where: { driverId: driverId },
     });

@@ -6,13 +6,15 @@ import { ConfigModule } from '@nestjs/config';
 import { PrismaService } from './service/prisma.service';
 import { AuthService } from './service/auth.service';
 import {RaceService} from "./service/race.service";
+import {RaceParticipationController} from "./controller/race.participation.controller";
+import {RaceParticipationService} from "./service/race.participation.service";
 
 @Module({
   imports: [
     GrpcReflectionModule.register(grpcConfig),
     ConfigModule.forRoot(),
   ],
-  controllers: [RaceController],
-  providers: [RaceService, PrismaService, AuthService],
+  controllers: [RaceController, RaceParticipationController],
+  providers: [RaceService, RaceParticipationService, PrismaService, AuthService],
 })
 export class AppModule {}

@@ -1,19 +1,14 @@
 # TODOs
 - race API
     - Ajouter une participation
-      - Endpoint
       - Security
     - Supprimer une participation
-      - Endpoint
       - Security 
     - Liste des participations
-      - Endpoint
       - Security
     - Récupérer une participation
-      - Endpoint
       - Security
       - Return car and driver object
     - Modifier une participation
-      - Endpoint
       - Security
-    - Liste dens endpoint dans la doc des readme
+    - Course dertail endpoint

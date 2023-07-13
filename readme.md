@@ -8,7 +8,7 @@
 ## Functionalities
 - 3 APIs
 - Auth
-- Workflow requiring an inter-api call
+- Workflow requiring an inter-api call ([Race participation controller](api/race-api/src/controller/race.participation.controller.ts) in Race API)
 - Dockerisation
 - APIs with certificates
 ## Docker services

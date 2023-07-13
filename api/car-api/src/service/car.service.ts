@@ -9,10 +9,10 @@ export class CarService {
   async createCar(data): Promise<Car> {
     return this.prisma.car.create({data});
   }
-  listCars(): Promise<Car[]> {
+  async listCars(): Promise<Car[]> {
     return this.prisma.car.findMany();
   }
-  getCar(carId: number): Promise<Car> {
+  async getCar(carId: number): Promise<Car> {
     return this.prisma.car.findUnique({
       where: { carId: carId },
     });
@@ -23,7 +23,7 @@ export class CarService {
       data,
     });
   }
-  deleteCar(carId: number) {
+  async deleteCar(carId: number) {
     return this.prisma.car.delete({
       where: { carId: carId },
     });
