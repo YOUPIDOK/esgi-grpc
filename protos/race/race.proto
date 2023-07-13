@@ -4,14 +4,14 @@ package race;
 
 // ***************************************************** SERVICES ******************************************************
 service RaceService {
-  // Race CRUD
   rpc ListRaces(ListRacesRequest) returns (ListRacesResponse) {}
   rpc GetRace(GetRaceRequest) returns (GetRaceResponse) {}
   rpc CreateRace(CreateRaceRequest) returns (CreateRaceResponse) {}
   rpc UpdateRace(UpdateRaceRequest) returns (UpdateRaceResponse) {}
   rpc DeleteRace(DeleteRaceRequest) returns (DeleteRaceResponse) {}
+}
 
-  // Race participations CRUD
+service RaceParticipationService {
   rpc ListRaceParticipations(ListRaceParticipationsRequest) returns (ListRaceParticipationsResponse) {}
   rpc GetRaceParticipation(GetRaceParticipationRequest) returns (GetRaceParticipationResponse) {}
   rpc CreateRaceParticipation(CreateRaceParticipationRequest) returns (CreateRaceParticipationResponse) {}

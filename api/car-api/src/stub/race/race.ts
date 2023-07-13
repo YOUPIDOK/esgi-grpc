@@ -11,6 +11,12 @@ export interface Race {
   name?: string | undefined;
 }
 
+export interface RaceParticipation {
+  raceId?: number | undefined;
+  driverId?: number | undefined;
+  carId?: number | undefined;
+}
+
 /** ******************************************** REQUESTS / RESONSES *************************************************** */
 export interface ListRacesRequest {
 }
@@ -49,6 +55,51 @@ export interface DeleteRaceRequest {
 
 export interface DeleteRaceResponse {
   race?: Race | undefined;
+}
+
+export interface ListRaceParticipationsRequest {
+}
+
+export interface ListRaceParticipationsResponse {
+  raceParticipations?: RaceParticipation[] | undefined;
+}
+
+export interface GetRaceParticipationRequest {
+  raceId?: number | undefined;
+  driverId?: number | undefined;
+}
+
+export interface GetRaceParticipationResponse {
+  raceParticipation?: RaceParticipation | undefined;
+}
+
+export interface CreateRaceParticipationRequest {
+  raceId?: number | undefined;
+  driverId?: number | undefined;
+  carId?: number | undefined;
+}
+
+export interface CreateRaceParticipationResponse {
+  raceParticipation?: RaceParticipation | undefined;
+}
+
+export interface UpdateCarOfDriverRequest {
+  raceId?: number | undefined;
+  driverId?: number | undefined;
+  carId?: number | undefined;
+}
+
+export interface UpdateCarOfDriverResponse {
+  raceParticipation?: RaceParticipation | undefined;
+}
+
+export interface DeleteRaceParticipationRequest {
+  raceId?: number | undefined;
+  driverId?: number | undefined;
+}
+
+export interface DeleteRaceParticipationResponse {
+  raceParticipation?: RaceParticipation | undefined;
 }
 
 export const RACE_PACKAGE_NAME = "race";
@@ -112,3 +163,86 @@ export function RaceServiceControllerMethods() {
 }
 
 export const RACE_SERVICE_NAME = "RaceService";
+
+export interface RaceParticipationServiceClient {
+  listRaceParticipations(
+    request: ListRaceParticipationsRequest,
+    metadata?: Metadata,
+  ): Observable<ListRaceParticipationsResponse>;
+
+  getRaceParticipation(
+    request: GetRaceParticipationRequest,
+    metadata?: Metadata,
+  ): Observable<GetRaceParticipationResponse>;
+
+  createRaceParticipation(
+    request: CreateRaceParticipationRequest,
+    metadata?: Metadata,
+  ): Observable<CreateRaceParticipationResponse>;
+
+  updateCarOfDriver(request: UpdateCarOfDriverRequest, metadata?: Metadata): Observable<UpdateCarOfDriverResponse>;
+
+  deleteRaceParticipation(
+    request: DeleteRaceParticipationRequest,
+    metadata?: Metadata,
+  ): Observable<DeleteRaceParticipationResponse>;
+}
+
+export interface RaceParticipationServiceController {
+  listRaceParticipations(
+    request: ListRaceParticipationsRequest,
+    metadata?: Metadata,
+  ):
+    | Promise<ListRaceParticipationsResponse>
+    | Observable<ListRaceParticipationsResponse>
+    | ListRaceParticipationsResponse;
+
+  getRaceParticipation(
+    request: GetRaceParticipationRequest,
+    metadata?: Metadata,
+  ): Promise<GetRaceParticipationResponse> | Observable<GetRaceParticipationResponse> | GetRaceParticipationResponse;
+
+  createRaceParticipation(
+    request: CreateRaceParticipationRequest,
+    metadata?: Metadata,
+  ):
+    | Promise<CreateRaceParticipationResponse>
+    | Observable<CreateRaceParticipationResponse>
+    | CreateRaceParticipationResponse;
+
+  updateCarOfDriver(
+    request: UpdateCarOfDriverRequest,
+    metadata?: Metadata,
+  ): Promise<UpdateCarOfDriverResponse> | Observable<UpdateCarOfDriverResponse> | UpdateCarOfDriverResponse;
+
+  deleteRaceParticipation(
+    request: DeleteRaceParticipationRequest,
+    metadata?: Metadata,
+  ):
+    | Promise<DeleteRaceParticipationResponse>
+    | Observable<DeleteRaceParticipationResponse>
+    | DeleteRaceParticipationResponse;
+}
+
+export function RaceParticipationServiceControllerMethods() {
+  return function (constructor: Function) {
+    const grpcMethods: string[] = [
+      "listRaceParticipations",
+      "getRaceParticipation",
+      "createRaceParticipation",
+      "updateCarOfDriver",
+      "deleteRaceParticipation",
+    ];
+    for (const method of grpcMethods) {
+      const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
+      GrpcMethod("RaceParticipationService", method)(constructor.prototype[method], method, descriptor);
+    }
+    const grpcStreamMethods: string[] = [];
+    for (const method of grpcStreamMethods) {
+      const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
+      GrpcStreamMethod("RaceParticipationService", method)(constructor.prototype[method], method, descriptor);
+    }
+  };
+}
+
+export const RACE_PARTICIPATION_SERVICE_NAME = "RaceParticipationService";

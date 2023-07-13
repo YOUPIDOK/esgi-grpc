@@ -11,3 +11,11 @@ model race {
   raceId Int    @id @default(autoincrement())
   name   String @unique @db.VarChar(255)
 }
+
+model race_participation {
+  raceId   Int
+  driverId Int
+  carId    Int
+
+  @@id([raceId, driverId])
+}

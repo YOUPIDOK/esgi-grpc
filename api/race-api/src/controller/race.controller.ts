@@ -16,6 +16,7 @@ import {GrpcNotFoundException} from "nestjs-grpc-exceptions";
 export class RaceController {
   constructor(private readonly raceService: RaceService) {}
 
+  @UseGuards(AuthGuard)
   async listRaces(request: ListRacesRequest): Promise<ListRacesResponse> {
     const races = await this.raceService.listRaces();
 

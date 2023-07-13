@@ -16,6 +16,7 @@ import {GrpcNotFoundException} from "nestjs-grpc-exceptions";
 export class DriverController {
   constructor(private readonly driverService: DriverService) {}
 
+  @UseGuards(AuthGuard)
   async listDrivers(request: ListDriversRequest): Promise<ListDriversResponse> {
     const drivers = await this.driverService.listDrivers();
 
