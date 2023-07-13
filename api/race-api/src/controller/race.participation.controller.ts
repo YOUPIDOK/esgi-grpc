@@ -12,13 +12,17 @@ import {
   UpdateRaceParticipationRequest, UpdateRaceParticipationResponse,
 } from "../stub/race/race";
 import {AuthGuard} from "../guard/auth.guard";
-import {GrpcNotFoundException} from "nestjs-grpc-exceptions";
+import {GrpcInternalException, GrpcInvalidArgumentException, GrpcNotFoundException} from "nestjs-grpc-exceptions";
 import {RaceParticipationService} from "../service/race.participation.service";
+import {RaceService} from "../service/race.service";
 
 @Controller('race_participation')
 @RaceParticipationServiceControllerMethods()
 export class RaceParticipationController {
-  constructor(private readonly raceParticipationService: RaceParticipationService) {}
+  constructor(
+      private readonly raceParticipationService: RaceParticipationService,
+      private readonly raceService: RaceService
+  ) {}
 
   @UseGuards(AuthGuard)
   async listRaceParticipations(request: ListRaceParticipationsRequest): Promise<ListRaceParticipationsResponse> {
@@ -46,6 +50,18 @@ export class RaceParticipationController {
   async createRaceParticipation(request: CreateRaceParticipationRequest): Promise<CreateRaceParticipationResponse> {
     const raceParticipation = await this.raceParticipationService.createRaceParticipation(request);
 
+    // Race validation
+    const race = await this.raceService.getRace(request.raceId);
+    if (race === null) {
+      throw new GrpcInvalidArgumentException('The argument "raceId" is not valid.')
+    }
+
+    // Car validation
+    // Call API
+
+    // Driver validation
+    // Call API
+
     // TODO : carId, raceId and diverId validation
 
     return {
@@ -61,8 +77,18 @@ export class RaceParticipationController {
       throw new GrpcNotFoundException('Race participation Not Found.');
     }
 
-    // TODO : carId, raceId and diverId validation
+    const race = await this.raceService.getRace(request.raceParticipation.raceId);
+    if (race === null) {
+      throw new GrpcInvalidArgumentException('The argument "raceId" is not valid.')
+    }
 
+    // Car validation
+    // Call API
+
+    // Driver validation
+    // Call API
+
+    // TODO : carId, raceId and diverId validation
     return {
       raceParticipation: raceParticipation
     }

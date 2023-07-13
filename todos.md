@@ -2,12 +2,25 @@
 - race API
     - Ajouter une participation
       - Security
+      - .env 
+        - docker
+        - api
     - Supprimer une participation
       - Security 
+      - .env
+        - docker
+        - api
     - Liste des participations
       - Security
+      - .env
+        - docker
+        - api
     - Récupérer une participation
       - Security
+      - .env
+        - docker
+        - api
     - Modifier une participation
       - Security
+      - .env
     - Course dertail endpoint
