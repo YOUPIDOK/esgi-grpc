@@ -66,10 +66,3 @@ message DeleteRaceRequest {
 message DeleteRaceResponse {
   Race race  = 1;
 }
-
-message StreamRacesRequest {}
-
-message StreamRacesResponse {
-  Race race = 1;
-  string event_type = 2;
-}
