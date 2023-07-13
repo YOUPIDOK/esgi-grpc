@@ -8,7 +8,6 @@
       - Security
     - Récupérer une participation
       - Security
-      - Return car and driver object
     - Modifier une participation
       - Security
     - Course dertail endpoint
