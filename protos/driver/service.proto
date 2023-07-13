@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package car;
+package driver;
 
-import "car/request.proto";
+import "driver/request.proto";
 
 service CarService {
   rpc ListCars(ListCarsRequest) returns (ListCarsResponse) {}

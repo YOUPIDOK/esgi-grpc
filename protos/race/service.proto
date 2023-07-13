@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package race;
+
+import "race/request.proto";
+
+service RaceService {
+  rpc ListRaces(ListRacesRequest) returns (ListRacesResponse) {}
+  rpc GetRace(GetRaceRequest) returns (GetRaceResponse) {}
+  rpc CreateRace(CreateRaceRequest) returns (CreateRaceResponse) {}
+  rpc UpdateRace(UpdateRaceRequest) returns (UpdateRaceResponse) {}
+  rpc DeleteRace(DeleteRaceRequest) returns (DeleteRaceResponse) {}
+
+  rpc UpdateDate(UpdateDateRequest) returns (UpdateDateResponse) {}
+
+  rpc StreamRaces(StreamRacesRequest) returns (stream StreamRacesResponse) {}
+}
+

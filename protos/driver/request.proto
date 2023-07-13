@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package car;
+package driver;
 
-import "car/message.proto";
+import "driver/message.proto";
 
 message ListCarsRequest {
   // The parent resource name, for example, "shelves/shelf1"
