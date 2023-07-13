@@ -1,8 +1,9 @@
-# Clipper API
+# Car API
 ## Installation
 ```bash
 cp .env.example .env # Copy and config .env
 npm install
+npm install -g prisma 
 prisma migrate dev --name init  
 ```
 

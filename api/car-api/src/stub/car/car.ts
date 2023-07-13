@@ -2,22 +2,60 @@
 import { Metadata } from "@grpc/grpc-js";
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
-import {
-  CreateCarRequest,
-  CreateCarResponse,
-  DeleteCarRequest,
-  DeleteCarResponse,
-  GetCarRequest,
-  GetCarResponse,
-  ListCarsRequest,
-  ListCarsResponse,
-  UpdateCarRequest,
-  UpdateCarResponse,
-} from "./request";
 
 export const protobufPackage = "car";
 
+/** ****************************************************** MESSAGES **************************************************** */
+export interface Car {
+  carId?: number | undefined;
+  model?: string | undefined;
+  brand?: string | undefined;
+}
+
+/** ******************************************** REQUESTS / RESONSES *************************************************** */
+export interface ListCarsRequest {
+}
+
+export interface ListCarsResponse {
+  cars?: Car[] | undefined;
+}
+
+export interface GetCarRequest {
+  carId?: number | undefined;
+}
+
+export interface GetCarResponse {
+  car?: Car | undefined;
+}
+
+export interface CreateCarRequest {
+  model?: string | undefined;
+  brand?: string | undefined;
+}
+
+export interface CreateCarResponse {
+  car?: Car | undefined;
+}
+
+export interface UpdateCarRequest {
+  car?: Car | undefined;
+}
+
+export interface UpdateCarResponse {
+  car?: Car | undefined;
+}
+
+export interface DeleteCarRequest {
+  carId?: number | undefined;
+}
+
+export interface DeleteCarResponse {
+  car?: Car | undefined;
+}
+
 export const CAR_PACKAGE_NAME = "car";
+
+/** **************************************************** SERVICES ****************************************************** */
 
 export interface CarServiceClient {
   listCars(request: ListCarsRequest, metadata?: Metadata): Observable<ListCarsResponse>;
@@ -30,6 +68,8 @@ export interface CarServiceClient {
 
   deleteCar(request: DeleteCarRequest, metadata?: Metadata): Observable<DeleteCarResponse>;
 }
+
+/** **************************************************** SERVICES ****************************************************** */
 
 export interface CarServiceController {
   listCars(

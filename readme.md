@@ -42,15 +42,15 @@ mkcert car-api localhost
 mv car-api+1.pem car-api.pem
 mv car-api+1-key.pem car-api-key.pem
 
-## Race API
-mkcert race-api localhost
-mv race-api+1.pem race-api.pem
-mv race-api+1-key.pem race-api-key.pem
-
 ## Driver API
 mkcert driver-api localhost
 mv driver-api+1.pem driver-api.pem
 mv driver-api+1-key.pem driver-api-key.pem
+
+## Race API
+mkcert race-api localhost
+mv race-api+1.pem race-api.pem
+mv race-api+1-key.pem race-api-key.pem
 ```
 #### Docker
 ```shell

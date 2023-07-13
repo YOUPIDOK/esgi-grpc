@@ -7,11 +7,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model driver {
-  driver_id  Int      @id
-  email      String   @db.VarChar(255)
-  first_name String   @db.VarChar(255)
-  last_name  String   @db.VarChar(255)
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+model car {
+  carId Int    @id @default(autoincrement())
+  model String @unique @db.VarChar(255)
+  brand String @db.VarChar(255)
 }

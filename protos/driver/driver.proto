@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package driver;
+
+// ***************************************************** SERVICES ******************************************************
+service DriverService {
+  rpc ListDrivers(ListDriversRequest) returns (ListDriversResponse) {}
+  rpc GetDriver(GetDriverRequest) returns (GetDriverResponse) {}
+  rpc CreateDriver(CreateDriverRequest) returns (CreateDriverResponse) {}
+  rpc UpdateDriver(UpdateDriverRequest) returns (UpdateDriverResponse) {}
+  rpc DeleteDriver(DeleteDriverRequest) returns (DeleteDriverResponse) {}
+}
+// *********************************************************************************************************************
+
+// ******************************************************* MESSAGES ****************************************************
+message Driver {
+  int32 driverId = 1;
+  string email = 2;
+  string firstName = 3;
+  string lastName = 4;
+}
+// *********************************************************************************************************************
+
+// ********************************************* REQUESTS / RESONSES ***************************************************
+message ListDriversRequest {}
+message ListDriversResponse {
+  repeated Driver drivers = 1;
+}
+
+message GetDriverRequest {
+  int32 driverId = 1;
+}
+message GetDriverResponse {
+  Driver driver = 1;
+}
+
+message CreateDriverRequest {
+  string email = 1;
+  string firstName = 2;
+  string lastName = 3;
+}
+message CreateDriverResponse {
+  Driver driver  = 1;
+}
+
+message UpdateDriverRequest {
+  Driver driver = 1;
+}
+message UpdateDriverResponse {
+  Driver driver  = 1;
+}
+
+message DeleteDriverRequest {
+  int32 driverId = 1;
+}
+message DeleteDriverResponse {
+  Driver driver  = 1;
+}
+// *********************************************************************************************************************

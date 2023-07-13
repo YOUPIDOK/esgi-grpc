@@ -2,22 +2,62 @@
 import { Metadata } from "@grpc/grpc-js";
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
-import {
-  CreateDriverRequest,
-  CreateDriverResponse,
-  DeleteDriverRequest,
-  DeleteDriverResponse,
-  GetDriverRequest,
-  GetDriverResponse,
-  ListDriversRequest,
-  ListDriversResponse,
-  UpdateDriverRequest,
-  UpdateDriverResponse,
-} from "./request";
 
 export const protobufPackage = "driver";
 
+/** ****************************************************** MESSAGES **************************************************** */
+export interface Driver {
+  driverId?: number | undefined;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+}
+
+/** ******************************************** REQUESTS / RESONSES *************************************************** */
+export interface ListDriversRequest {
+}
+
+export interface ListDriversResponse {
+  drivers?: Driver[] | undefined;
+}
+
+export interface GetDriverRequest {
+  driverId?: number | undefined;
+}
+
+export interface GetDriverResponse {
+  driver?: Driver | undefined;
+}
+
+export interface CreateDriverRequest {
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+}
+
+export interface CreateDriverResponse {
+  driver?: Driver | undefined;
+}
+
+export interface UpdateDriverRequest {
+  driver?: Driver | undefined;
+}
+
+export interface UpdateDriverResponse {
+  driver?: Driver | undefined;
+}
+
+export interface DeleteDriverRequest {
+  driverId?: number | undefined;
+}
+
+export interface DeleteDriverResponse {
+  driver?: Driver | undefined;
+}
+
 export const DRIVER_PACKAGE_NAME = "driver";
+
+/** **************************************************** SERVICES ****************************************************** */
 
 export interface DriverServiceClient {
   listDrivers(request: ListDriversRequest, metadata?: Metadata): Observable<ListDriversResponse>;
@@ -30,6 +70,8 @@ export interface DriverServiceClient {
 
   deleteDriver(request: DeleteDriverRequest, metadata?: Metadata): Observable<DeleteDriverResponse>;
 }
+
+/** **************************************************** SERVICES ****************************************************** */
 
 export interface DriverServiceController {
   listDrivers(

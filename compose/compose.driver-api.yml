@@ -9,12 +9,12 @@ services:
       - ../api/driver-api:/app
       - ../certs:/app/certs
     environment:
-      - API_URL=driver-api:7000
+      - API_URL=race-manager-driver-api:${DRIVER_API_PORT}
       - DATABASE_URL=mysql://root:${MYSQL_ROOT_PASSWORD}@mariadb:3306/driver
       - SECRET_KEY=${APP_SECRET_KEY}
       - AUTH_KEY=/certs/driver-api-key.pem
       - AUTH_CERT=/certs/driver-api.pem
     ports:
-      - 7000:7000
+      - ${DRIVER_API_PORT}:${DRIVER_API_PORT}
     stdin_open: true
     command: npm run start:${APP_MOD}

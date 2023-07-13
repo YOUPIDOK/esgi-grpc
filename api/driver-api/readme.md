@@ -1,4 +1,4 @@
-# Clipper API
+# Driver API
 ## Installation
 ```bash
 cp .env.example .env # Copy and config .env

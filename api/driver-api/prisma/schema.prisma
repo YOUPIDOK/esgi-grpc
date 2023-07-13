@@ -8,9 +8,8 @@ datasource db {
 }
 
 model driver {
-  driver_id  Int      @id
-  first_name String   @db.VarChar(255)
-  last_name  String   @db.VarChar(255)
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  driverId  Int    @id @default(autoincrement())
+  email     String @unique @db.VarChar(255)
+  firstName String @db.VarChar(255)
+  lastName  String @db.VarChar(255)
 }

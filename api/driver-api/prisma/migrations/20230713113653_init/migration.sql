@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `driver` MODIFY `driverId` INTEGER NOT NULL AUTO_INCREMENT;
