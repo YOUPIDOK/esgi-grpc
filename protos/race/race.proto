@@ -4,11 +4,19 @@ package race;
 
 // ***************************************************** SERVICES ******************************************************
 service RaceService {
+  // Race CRUD
   rpc ListRaces(ListRacesRequest) returns (ListRacesResponse) {}
   rpc GetRace(GetRaceRequest) returns (GetRaceResponse) {}
   rpc CreateRace(CreateRaceRequest) returns (CreateRaceResponse) {}
   rpc UpdateRace(UpdateRaceRequest) returns (UpdateRaceResponse) {}
   rpc DeleteRace(DeleteRaceRequest) returns (DeleteRaceResponse) {}
+
+  // Race participations CRUD
+  rpc ListRaceParticipations(ListRaceParticipationsRequest) returns (ListRaceParticipationsResponse) {}
+  rpc GetRaceParticipation(GetRaceParticipationRequest) returns (GetRaceParticipationResponse) {}
+  rpc CreateRaceParticipation(CreateRaceParticipationRequest) returns (CreateRaceParticipationResponse) {}
+  rpc UpdateCarOfDriver(UpdateCarOfDriverRequest) returns (UpdateCarOfDriverResponse) {}
+  rpc DeleteRaceParticipation(DeleteRaceParticipationRequest) returns (DeleteRaceParticipationResponse) {}
 }
 // *********************************************************************************************************************
 
@@ -16,6 +24,12 @@ service RaceService {
 message Race {
   int32 raceId = 1;
   string name = 2;
+}
+
+message RaceParticipation {
+  int32 raceId = 1;
+  int32 driverId = 2;
+  int32 carId = 3;
 }
 // *********************************************************************************************************************
 
@@ -51,5 +65,45 @@ message DeleteRaceRequest {
 }
 message DeleteRaceResponse {
   Race race  = 1;
+}
+
+message ListRaceParticipationsRequest {
+}
+message ListRaceParticipationsResponse {
+  repeated RaceParticipation raceParticipations = 1;
+}
+
+message GetRaceParticipationRequest {
+  int32 raceId = 1;
+  int32 driverId = 2;
+}
+message GetRaceParticipationResponse {
+  RaceParticipation raceParticipation = 1;
+}
+
+message CreateRaceParticipationRequest {
+  int32 raceId = 1;
+  int32 driverId = 2;
+  int32 carId = 3;
+}
+message CreateRaceParticipationResponse {
+  RaceParticipation raceParticipation = 1;
+}
+
+message UpdateCarOfDriverRequest {
+  int32 raceId = 1;
+  int32 driverId = 2;
+  int32 carId = 3;
+}
+message UpdateCarOfDriverResponse {
+  RaceParticipation raceParticipation = 1;
+}
+
+message DeleteRaceParticipationRequest {
+  int32 raceId = 1;
+  int32 driverId = 2;
+}
+message DeleteRaceParticipationResponse {
+  RaceParticipation raceParticipation = 1;
 }
 // *********************************************************************************************************************
