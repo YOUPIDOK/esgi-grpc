@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package task.v1beta;
+
+import "task/v1beta/request.proto";
+
+service CarService {
+  rpc ListCars(ListCarsRequest) returns (ListCarsResponse) {}
+  rpc GetCar(GetCarRequest) returns (GetCarResponse) {}
+  rpc CreateCar(CreateCarRequest) returns (CreateCarResponse) {}
+  rpc UpdateCar(UpdateCarRequest) returns (UpdateCarResponse) {}
+  rpc DeleteCar(DeleteCarRequest) returns (DeleteCarResponse) {}
+
+  rpc UpdateDate(UpdateDateRequest) returns (UpdateDateResponse) {}
+
+  rpc StreamCars(StreamCarsRequest) returns (stream StreamCarsResponse) {}
+}
+
