@@ -7,10 +7,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model car {
-  car_id         Int      @id
-  nb_exemplary   Int
-  image_filename String   @db.VarChar(255)
-  created_at     DateTime @default(now())
-  updated_at     DateTime @updatedAt
+model driver {
+  driver_id  Int      @id
+  first_name String   @db.VarChar(255)
+  last_name  String   @db.VarChar(255)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
