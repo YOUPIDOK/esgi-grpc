@@ -5,7 +5,7 @@ import { FieldsArray, Task, TaskDocument } from './entity/task.schema';
 import { CreateTaskDto, UpdateTaskDto } from './entity/task.dto';
 import { Task as TaskPb } from '../stubs/task/v1beta/message';
 @Injectable()
-export class TaskService {
+export class DriverService {
   constructor(@InjectModel(Task.name) private taskModel: Model<TaskDocument>) {}
 
   toTaskPb(task: Partial<TaskDocument>): TaskPb {
@@ -84,13 +84,13 @@ export class TaskService {
     return task;
   }
 
-  async deleteTask(id: number | string) {
-    const task = await this.taskModel.findOneAndDelete({
+  async deleteDriver(id: number | string) {
+    const task = await this.driverModel.findOneAndDelete({
       name: { $regex: `^${id}$`, $options: 'i' },
     });
 
     if (!task) {
-      throw new Error(`task with name ${id} not found`);
+      throw new Error(`Driver with name ${id} not found`);
     }
 
     return task;
