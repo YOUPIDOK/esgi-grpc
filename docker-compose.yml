@@ -6,10 +6,10 @@ services:
       file: ./compose/compose.mariadb.yml
       service: mariadb
 
-  car-api:
-    extends:
-      file: compose/compose.car-api.yml
-      service: car-api
+#  car-api:
+#    extends:
+#      file: compose/compose.car-api.yml
+#      service: car-api
 
 #  race-api:
 #    extends:
