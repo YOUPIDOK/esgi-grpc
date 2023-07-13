@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package Clipper;
+
+service ClipperService {
+  rpc FindOne (ClipperById) returns (Clipper) {}
+}
+
+service CollectionService {
+  rpc FindOne(CollectionById) returns (Collection) {}
+}
+
+message ClipperById {
+  int32 id = 1;
+}
+
+message CollectionById {
+  int32 id = 1;
+}
+
+message Clipper {
+  int32 id = 1;
+  int32 collection_id = 2;
+  int32 number = 3;
+  int32 nb_exemplary = 4;
+  string image_filename = 5;
+  google.protobuf.Timestamp created_at = 6;
+  google.protobuf.Timestamp updated_at = 7;
+  Collection collection = 8;
+}
+
+message Collection {
+  int32 id = 1;
+  int32 user_id = 2;
+  string name = 3;
+  int32 nb_clipper = 4;
+  string clipper_type = 5;
+  bool is_official = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
+  repeated Clipper clippers = 9;
+}

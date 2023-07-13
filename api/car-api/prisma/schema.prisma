@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model collection {
+  id           Int       @id @default(autoincrement())
+  user_id      Int
+  name         String    @db.VarChar(100)
+  nb_clipper   Int       @default(4)
+  clipper_type String    @db.VarChar(30)
+  is_official  Boolean   @db.TinyInt
+  created_at   DateTime  @default(now())
+  updated_at   DateTime  @updatedAt
+  clippers     clipper[]
+
+  @@unique([user_id, name])
+  @@index([user_id])
+}
+
+model clipper {
+  id             Int        @id
+  collection_id  Int
+  number         Int
+  nb_exemplary   Int
+  image_filename String     @db.VarChar(255)
+  created_at     DateTime   @default(now())
+  updated_at     DateTime   @updatedAt
+  collection     collection @relation(fields: [collection_id], references: [id])
+
+  @@unique([collection_id, number])
+}

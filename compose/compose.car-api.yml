@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  car-api:
+    image: node:16
+    working_dir: /app
+    volumes:
+      - ../api/car-api:/app
+      - ../certs:/app/certs
+    environment:
+      - API_URL=car-api:7000
+      - DATABASE_URL=mysql://root:password@mariadb:3306/car
+      - SECRET_KEY=cufH9fGLzEacXzsexLiIs9VyzX3wELQjqseNdbwtYJ3g6ncnYyRHSfIyMgC3EUpijEwYtaZTMdlr9SYYBgy31nu3UpEKzKqgZFLovqiXmOF0BBByI2FqIyiYQlQH9Udl
+      - AUTH_KEY=/certs/car-api-key.pem
+      - AUTH_CERT=/certs/car-api.pem
+    ports:
+      - 7000:7000
+    stdin_open: true
+    command: npm run start:${APP_MOD}

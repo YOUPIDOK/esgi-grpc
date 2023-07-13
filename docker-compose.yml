@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  mariadb:
+    extends:
+      file: ./compose/compose.mariadb.yml
+      service: mariadb
+
+  car-api:
+    extends:
+      file: compose/compose.car-api.yml
+      service: car-api
+
+#  race-api:
+#    extends:
+#      file: compose/compose.race-api.yml
+#      service: race-api
+#
+#  diver-api:
+#    extends:
+#      file: compose/compose.diver-api.yml
+#      service: diver-api
