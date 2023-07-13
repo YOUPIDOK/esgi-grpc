@@ -10,9 +10,5 @@ service RaceService {
   rpc CreateRace(CreateRaceRequest) returns (CreateRaceResponse) {}
   rpc UpdateRace(UpdateRaceRequest) returns (UpdateRaceResponse) {}
   rpc DeleteRace(DeleteRaceRequest) returns (DeleteRaceResponse) {}
-
-  rpc UpdateDate(UpdateDateRequest) returns (UpdateDateResponse) {}
-
-  rpc StreamRaces(StreamRacesRequest) returns (stream StreamRacesResponse) {}
 }
 

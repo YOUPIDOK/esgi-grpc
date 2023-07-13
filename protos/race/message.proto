@@ -7,6 +7,4 @@ message Race {
   int32 driver_id = 2;
   int32 car_id = 3;
   string name = 4;
-  google.protobuf.Timestamp created_at = 5;
-  google.protobuf.Timestamp updated_at = 6;
 }

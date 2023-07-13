@@ -4,7 +4,7 @@ package driver;
 
 import "driver/message.proto";
 
-message ListCarsRequest {
+message ListDriversRequest {
   // The parent resource name, for example, "shelves/shelf1"
   string parent = 1;
 
@@ -15,54 +15,54 @@ message ListCarsRequest {
   string page_token = 3;
 }
 
-message ListCarsResponse {
-  // The field name should match the noun "Car" in the method name.
+message ListDriversResponse {
+  // The field name should match the noun "Driver" in the method name.
   // There will be a maximum number of items returned based on the page_size field in the request.
-  repeated Car cars = 1;
+  repeated Driver drivers = 1;
 
   // Token to retrieve the next page of results, or empty if there are no more results in the list.
   string next_page_token = 2;
 }
 
-message GetCarRequest {
+message GetDriverRequest {
   // The field will contain name of the resource requested.
   string name = 1;
 }
 
-message GetCarResponse {
-  Car car = 1;
+message GetDriverResponse {
+  Driver driver = 1;
 }
 
-message CreateCarRequest {
-  // The parent resource name where the Car is to be created.
+message CreateDriverRequest {
+  // The parent resource name where the Driver is to be created.
   string parent = 1;
 
-  // The Car id to use for this Car.
-  string car_id = 2;
+  // The Driver id to use for this Driver.
+  string driver_id = 2;
 
-  // The Car resource to create.
+  // The Driver resource to create.
   // The field name should match the Noun in the method name.
-  Car car = 3;
+  Driver driver = 3;
 }
 
-message CreateCarResponse {
-  Car car  = 1;
+message CreateDriverResponse {
+  Driver driver  = 1;
 }
 
-message UpdateCarRequest {
-  // The Car resource which replaces the resource on the server.
-  Car car = 1;
+message UpdateDriverRequest {
+  // The Driver resource which replaces the resource on the server.
+  Driver driver = 1;
 }
 
-message UpdateCarResponse {
-  Car car  = 1;
+message UpdateDriverResponse {
+  Driver driver  = 1;
 }
 
-message DeleteCarRequest {
-  // The resource name of the Car to be deleted.
+message DeleteDriverRequest {
+  // The resource name of the Driver to be deleted.
   string name = 1;
 }
 
-message DeleteCarResponse {
-  Car car  = 1;
+message DeleteDriverResponse {
+  Driver driver  = 1;
 }
