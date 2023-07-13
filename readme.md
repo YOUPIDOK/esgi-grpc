@@ -28,6 +28,7 @@ cp .env.example .env
 ```shell
 # Install stubs
 cd protos
+npm install -g @bufbuild/buf  
 sh export.sh
 ```
 #### Certs
