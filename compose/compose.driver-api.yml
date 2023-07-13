@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   driver-api:
+    container_name: race-manager-driver-api
     image: node:16
     working_dir: /app
     volumes:

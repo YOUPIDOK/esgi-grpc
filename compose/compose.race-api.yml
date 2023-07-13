@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   race-api:
+    container_name: race-manager-race-api
     image: node:16
     working_dir: /app
     volumes:

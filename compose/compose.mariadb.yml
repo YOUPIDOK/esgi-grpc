@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mariadb:
-    container_name: mariadb
+    container_name: race-manager-mariadb
     image: mariadb
     ports:
       - "6033:3306"
