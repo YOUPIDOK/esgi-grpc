@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model car {
+model driver {
   car_id         Int      @id
   nb_exemplary   Int
   image_filename String   @db.VarChar(255)

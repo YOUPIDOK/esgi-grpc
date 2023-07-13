@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ClipperController } from './controller/clipper.controller';
+import { DriverController } from './controller/driver.controller';
 import { ClipperService } from './service/clipper.service';
 import {GrpcReflectionModule} from 'nestjs-grpc-reflection';
 import {grpcConfig} from './config/grpc.config';
@@ -14,7 +14,7 @@ import {CollectionController} from "./controller/collection.controller";
     GrpcReflectionModule.register(grpcConfig),
     ConfigModule.forRoot(),
   ],
-  controllers: [ClipperController, CollectionController],
+  controllers: [DriverController, CollectionController],
   providers: [ClipperService, CollectionService, PrismaService, AuthService],
 })
 export class AppModule {}
