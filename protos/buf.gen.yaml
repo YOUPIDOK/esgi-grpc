@@ -14,3 +14,9 @@ plugins:
       - addGrpcMetadata=true
       - nestJs=true
       - useOptionals=all
+  - plugin: buf.build/community/stephenh-ts-proto
+    out: ../api/race-api/src/stub
+    opt:
+      - addGrpcMetadata=true
+      - nestJs=true
+      - useOptionals=all

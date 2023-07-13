@@ -5,6 +5,12 @@
 - Nathan PONCET
 - Mohamed BENALIA
 - Bastien BREVET
+## Functionalities
+- 3 APIs
+- Auth
+- Workflow requiring an inter-api call
+- Dockerisation
+- APIs with certificates
 ## Docker services
 - Mysql
 - Car API
@@ -18,6 +24,15 @@
 >[Race API Installation](api/race-api/readme.md)
 #### driver API
 >[Driver API Installation](api/driver-api/readme.md)
+#### Token generation
+> All APIs use the same secret to verify the token.
+> The secret is contained in the .env file and is passed in environment variables for each API.
+> The token is a bearer token
+```shell
+# In api/car-api/ or api/driver-api/ or api/race-api/
+# Generate token
+node src/command/api.token-genrator.ts
+```
 ### App
 #### Env vars
 ```shell

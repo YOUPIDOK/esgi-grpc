@@ -29,7 +29,7 @@ export class CarController {
     const car = await this.carService.getCar(request.carId);
 
     if (car === null) {
-      throw new GrpcNotFoundException('Clipper Not Found.');
+      throw new GrpcNotFoundException('Car Not Found.');
     }
 
     return {
@@ -52,7 +52,7 @@ export class CarController {
     const car = await this.carService.updateCar(request.car);
 
     if (car === null) {
-      throw new GrpcNotFoundException('Clipper Not Found.');
+      throw new GrpcNotFoundException('Car Not Found.');
     }
 
     return {
@@ -65,7 +65,7 @@ export class CarController {
     const car = await this.carService.deleteCar(request.carId);
 
     if (car === null) {
-      throw new GrpcNotFoundException('Clipper Not Found.');
+      throw new GrpcNotFoundException('Car Not Found.');
     }
 
     return {

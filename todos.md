@@ -1,15 +1,4 @@
 # TODOs
-- car API
 - race API
-  - CRUD
   - RELATIONs
   - realtions verif
-- compose
-- protos
-- mv certs docs
-- Command uniqe pr générer les tokens
-- Expliquer comment générer un token
-- docs des 3 apis
-- .env.exemaple * 3 api
-- MLD
-- Explication des relations

@@ -9,12 +9,12 @@ services:
       - ../api/race-api:/app
       - ../certs:/app/certs
     environment:
-      - API_URL=race-api:7000
+      - API_URL=race-manager-race-api:${RACE_API_PORT}
       - DATABASE_URL=mysql://root:${MYSQL_ROOT_PASSWORD}@mariadb:3306/race
       - SECRET_KEY=${APP_SECRET_KEY}
       - AUTH_KEY=/certs/race-api-key.pem
       - AUTH_CERT=/certs/race-api.pem
     ports:
-      - 7000:7000
+      - ${RACE_API_PORT}:${RACE_API_PORT}
     stdin_open: true
     command: npm run start:${APP_MOD}

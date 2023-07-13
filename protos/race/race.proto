@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package race;
+
+// ***************************************************** SERVICES ******************************************************
+service RaceService {
+  rpc ListRaces(ListRacesRequest) returns (ListRacesResponse) {}
+  rpc GetRace(GetRaceRequest) returns (GetRaceResponse) {}
+  rpc CreateRace(CreateRaceRequest) returns (CreateRaceResponse) {}
+  rpc UpdateRace(UpdateRaceRequest) returns (UpdateRaceResponse) {}
+  rpc DeleteRace(DeleteRaceRequest) returns (DeleteRaceResponse) {}
+}
+// *********************************************************************************************************************
+
+// ******************************************************* MESSAGES ****************************************************
+message Race {
+  int32 raceId = 1;
+  string name = 2;
+}
+// *********************************************************************************************************************
+
+// ********************************************* REQUESTS / RESONSES ***************************************************
+message ListRacesRequest {}
+message ListRacesResponse {
+  repeated Race races = 1;
+}
+
+message GetRaceRequest {
+  int32 raceId = 1;
+}
+message GetRaceResponse {
+  Race race = 1;
+}
+
+message CreateRaceRequest {
+  string name = 1;
+}
+message CreateRaceResponse {
+  Race race  = 1;
+}
+
+message UpdateRaceRequest {
+  Race race = 1;
+}
+message UpdateRaceResponse {
+  Race race  = 1;
+}
+
+message DeleteRaceRequest {
+  int32 raceId = 1;
+}
+message DeleteRaceResponse {
+  Race race  = 1;
+}
+// *********************************************************************************************************************

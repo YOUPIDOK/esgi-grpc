@@ -15,3 +15,8 @@ services:
     extends:
       file: ./compose/compose.car-api.yml
       service: car-api
+
+  race-api:
+    extends:
+      file: ./compose/compose.race-api.yml
+      service: race-api

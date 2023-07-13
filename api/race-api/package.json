@@ -1,5 +1,5 @@
 {
-  "name": "clipper-api",
+  "name": "race-api",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -30,6 +30,7 @@
     "@prisma/client": "^4.15.0",
     "dotenv": "^16.3.0",
     "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.3.4",
     "nestjs-grpc-exceptions": "^0.2.0",
     "nestjs-grpc-reflection": "^0.0.21",
     "reflect-metadata": "^0.1.13",

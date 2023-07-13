@@ -29,7 +29,7 @@ export class DriverController {
     const driver = await this.driverService.getDriver(request.driverId);
 
     if (driver === null) {
-      throw new GrpcNotFoundException('Clipper Not Found.');
+      throw new GrpcNotFoundException('Driver Not Found.');
     }
 
     return {
@@ -51,7 +51,7 @@ export class DriverController {
     const driver = await this.driverService.updateDriver(request.driver);
 
     if (driver === null) {
-      throw new GrpcNotFoundException('Clipper Not Found.');
+      throw new GrpcNotFoundException('Driver Not Found.');
     }
 
     return {
@@ -64,7 +64,7 @@ export class DriverController {
     const driver = await this.driverService.deleteDriver(request.driverId);
 
     if (driver === null) {
-      throw new GrpcNotFoundException('Clipper Not Found.');
+      throw new GrpcNotFoundException('Driver Not Found.');
     }
 
     return {
